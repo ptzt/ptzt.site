@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-// import { TechItem } from "../components/TechItem";
-// import RepoItem from "../components/RepoItem";
+import { TechItem } from "components/TechItem";
+import RepoItem from "components/RepoItem";
 
 interface AppProps {
   stats: Record<string, number>;
