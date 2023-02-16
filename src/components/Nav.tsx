@@ -109,7 +109,7 @@ const Nav = () => {
                 </div>
             </motion.div>
 
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence  mode='wait'>
                 {mobileMenuOpen && (
                     <>
                         <motion.div

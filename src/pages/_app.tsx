@@ -1,9 +1,9 @@
-import '@/styles/globals.css'
+import "../globals.css";
 import type { AppProps } from 'next/app'
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
-import Footer from 'components/Footer';
-import Nav from 'components/Nav';
+import Footer from '@/components/Footer';
+import Nav from '@/components/Nav';
 import "react-tippy/dist/tippy.css";
 
 export default function App({ Component, pageProps, router }: AppProps) {
