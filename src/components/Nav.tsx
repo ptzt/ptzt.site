@@ -75,7 +75,7 @@ const Nav = () => {
                 <div className="flex flex-row items-center justify-between gap-2">
                     <Theme />
                     <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
-                    <LandingButton name="Contact" link="/contact" selected={router.pathname === "/contact"} />
+                    {/* <LandingButton name="Contact" link="/contact" selected={router.pathname === "/contact"} /> */}
                 </div>
 
                 <div className="flex flex-row items-center justify-center gap-2 xs:gap-4">
@@ -109,7 +109,7 @@ const Nav = () => {
                 </div>
             </motion.div>
 
-            <AnimatePresence  mode='wait'>
+            <AnimatePresence mode='wait'>
                 {mobileMenuOpen && (
                     <>
                         <motion.div
@@ -136,12 +136,12 @@ const Nav = () => {
                                     selected={router.pathname === "/"}
                                     onClick={() => setMenuOpen(false)}
                                 />
-                                <MobileLandingButton
+                                {/* <MobileLandingButton
                                     name="Contact"
                                     link="/contact"
                                     selected={router.pathname === "/contact"}
                                     onClick={() => setMenuOpen(false)}
-                                />
+                                /> */}
                             </div>
 
                             <div className="flex flex-row items-center justify-center gap-6 py-4">
