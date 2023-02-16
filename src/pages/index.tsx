@@ -2,6 +2,19 @@ import { motion } from "framer-motion";
 
 import { TechItem } from "@/components/TechItem";
 import RepoItem from "@/components/RepoItem";
+import {
+  SiVisualstudiocode,
+  SiGit,
+  SiNextdotjs as SiNextJs,
+  SiNodedotjs as SiNodeJs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss as SiTailwindCSS,
+  SiTypescript,
+  SiYarn,
+  SiJavascript,
+  SiMongodb
+} from "react-icons/si";
 
 interface AppProps {
   stats: Record<string, number>;
@@ -24,7 +37,7 @@ const Home = ({ stats, topRepos }: AppProps) => {
 
       <h2 className="font-medium text-3xl mb-4">¿Que hago?💭</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
-        Actualmente programo en React en el frontend y Nodejs en el backend, y estoy aprendiendo NextJs por su amplia mejora al rendimiento de paginas. Pero me adapto a lo que se necesite en el momento, pueden consultar mi Github para ver mis proyectos y colaboracines.
+        Actualmente programo en React en el frontend, estoy aprendiendo NextJs por su amplia mejora al rendimiento de paginas. Pero me adapto a lo que se necesite en el momento.
       </p>
 
       <h2 className="font-medium text-3xl mb-4">Tecnologias💻</h2>
@@ -32,51 +45,62 @@ const Home = ({ stats, topRepos }: AppProps) => {
         Utilizo una amplia gama de herramientas para abordar cada obstáculo de la manera más eficiente posible, voy aprendiendo tecnologias nuevas con mucho esfuerzo y dedicacion, pero estas son las que mejor controlo hasta el momento.
       </p>
       <div className="w-full flex flex-wrap flex-row justify-center p-1 border border-slate-800 rounded-md bg-white/10 dark:bg-black/10 mb-12">
-        
+        <TechItem icon={SiTypescript} name="TypeScript" />
+        <TechItem icon={SiVisualstudiocode} name="VSCode" />
+        <TechItem icon={SiReact} name="React.js" />
+        <TechItem icon={SiNodeJs} name="Node.js" />
+        <TechItem icon={SiJavascript} name="JavaScript" />
+        <TechItem icon={SiYarn} name="Yarn" />
+        <TechItem icon={SiNextJs} name="Next.js" />
+        <TechItem icon={SiTailwindCSS} name="TailwindCSS" />
+        <TechItem icon={SiPostgresql} name="Postgresql" />
+        <TechItem icon={SiGit} name="Git" />
+        <TechItem icon={SiMongodb} name="MongoDB" />
+
+
+
       </div>
 
       <h2 className="font-medium text-3xl mb-4">Proyectos 🛠️</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-6">
-        En mi tiempo libre, disfruto creando proyectos de código abierto en{" "}<a
+        En mi tiempo libre, disfruto creando proyectos en{" "}<a
           href="https://github.com/ptzt"
           rel="noreferrer"
           className="font-semibold text-violet-500 hover:underline"
         >
           GitHub
-        </a> para poder aprender de los demás y mostrar lo que sé. A continuación se muestran algunos de mis repositorios.
+        </a> para poder mejorar mis habilidades. A continuación se muestran algunos de mis repositorios.
       </p>
-      {/* <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
         {topRepos.map((repo: Record<string, any>) => {
           return (
             <RepoItem
               key={repo.name}
               name={repo.name}
               description={repo.description}
-              stars={repo.stargazers_count}
-              forks={repo.forks_count}
               language={repo.language}
             />
           );
         })}
-      </div> */}
+      </div>
     </motion.div>
   );
 };
 
-// export async function getStaticProps() {
-//   const stats = await fetch(`https://api.github-star-counter.workers.dev/user/ptzt`).then(res => res.json());
-//   const repos = await fetch(`https://api.github.com/users/ptzt/repos?type=owner&per_page=100`).then(res =>
-//     res.json()
-//   );
+export async function getStaticProps() {
+  const stats = await fetch(`https://api.github-star-counter.workers.dev/user/ptzt`).then(res => res.json());
+  const repos = await fetch(`https://api.github.com/users/ptzt/repos?type=owner&per_page=100`).then(res =>
+    res.json()
+  );
 
-//   const topRepos = repos
-//     .sort((a: Record<string, any>, b: Record<string, any>) => b.stargazers_count - a.stargazers_count)
-//     .slice(0, 4);
+  const topRepos = repos
+    .sort((a: Record<string, any>, b: Record<string, any>) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 4);
 
-//   return {
-//     props: { stats, topRepos },
-//     revalidate: 3600,
-//   };
-// }
+  return {
+    props: { stats, topRepos },
+    revalidate: 3600,
+  };
+}
 
 export default Home;
