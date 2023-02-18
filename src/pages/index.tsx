@@ -32,14 +32,14 @@ const Home = ({ stats, topRepos }: AppProps) => {
     >
       <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">Hola, soy Tomas👋</h1>
       <p className="text-gray-800 dark:text-gray-300 leading-6 tracking-wide mb-12">
-        Soy un programador de 21 años de Argentina. Estoy interesado en aplicaciones frontend, siempre usando codigo de calidad y trabajando en equipo😃.
+
+        Soy un programador de 21 años de Argentina, me gusta el trabajo en equipo ya que de esa manera puedo aprender y compartir mis conocimientos.
+        Actualmente estoy centrado en el desarrollo front end, en constante capacitación para poder desarrollar código de calidad.
       </p>
 
       <h2 className="font-medium text-3xl mb-4">¿Que hago?💭</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
-        Actualmente programo en React en el frontend, estoy aprendiendo NextJs por su amplia mejora al rendimiento de paginas. Pero me adapto a lo que se necesite en el momento.
-      </p>
-
+        Actualmente soy desarrollador front end con experiencia en React, y me encuentro realizando una capacitación en NextJS, pero me encuentro abierto a nuevas posibilidades y tecnologias que me ayuden a crecer profesionalmente.</p>
       <h2 className="font-medium text-3xl mb-4">Tecnologias💻</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-6">
         Utilizo una amplia gama de herramientas para abordar cada obstáculo de la manera más eficiente posible, voy aprendiendo tecnologias nuevas con mucho esfuerzo y dedicacion, pero estas son las que mejor controlo hasta el momento.
@@ -56,20 +56,17 @@ const Home = ({ stats, topRepos }: AppProps) => {
         <TechItem icon={SiPostgresql} name="Postgresql" />
         <TechItem icon={SiGit} name="Git" />
         <TechItem icon={SiMongodb} name="MongoDB" />
-
-
-
       </div>
 
       <h2 className="font-medium text-3xl mb-4">Proyectos 🛠️</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-6">
-        En mi tiempo libre, disfruto creando proyectos en{" "}<a
+        Disfruto creando proyectos que me permitan aprender y mejorar mis habilidades. A continuacion dejo mi{" "}<a
           href="https://github.com/ptzt"
           rel="noreferrer"
           className="font-semibold text-violet-500 hover:underline"
         >
           GitHub
-        </a> para poder mejorar mis habilidades. A continuación se muestran algunos de mis repositorios.
+        </a> y algunos de mis proyectos.
       </p>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
         {topRepos.map((repo: Record<string, any>) => {
