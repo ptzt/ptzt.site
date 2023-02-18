@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { SiTwitter, SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Theme from "./Theme";
@@ -85,11 +85,6 @@ const Nav = () => {
                         icon={<SiGithub className="w-6 h-6 cursor-pointer" />}
                     />
                     <LinkButton
-                        title="Twitter"
-                        href={"https://twitter.com/millantomas_"}
-                        icon={<SiTwitter className="w-6 h-6 cursor-pointer" />}
-                    />
-                    <LinkButton
                         title="LinkedIn"
                         href={"https://linkedin.com/in/tomasmillandev"}
                         icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
@@ -149,11 +144,6 @@ const Nav = () => {
                                     title="GitHub"
                                     href={"https://github.com/ptzt"}
                                     icon={<SiGithub className="w-6 h-6 cursor-pointer" />}
-                                />
-                                <LinkButton
-                                    title="Twitter"
-                                    href={"https://twitter.com/millantomas_"}
-                                    icon={<SiTwitter className="w-6 h-6 cursor-pointer" />}
                                 />
                                 <LinkButton
                                     title="LinkedIn"
