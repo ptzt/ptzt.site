@@ -1,4 +1,10 @@
 {
     "page.home.title": "Hey, I'm Tomas👋",
-    "page.home.description": "I am a 21 year old programmer from Argentina, I like teamwork because that way I can learn and share my knowledge. I am currently focused on front end development, in constant training to be able to develop quality code."
+    "page.home.description": "I am a 21 year old programmer from Argentina, I like teamwork because that way I can learn and share my knowledge. I am currently focused on front end development, in constant training to be able to develop quality code.",
+    "page.home.subtitle1": "What I do?💭",
+    "page.home.description1": "I am currently a front end developer with experience in React, and I am doing training in NextJS, but I am open to new possibilities and technologies that help me grow professionally.",
+    "page.home.subtitle2": "Technologies 💻",
+    "page.home.description2": "I use a wide range of tools to approach each obstacle in the most efficient way possible, I am learning new technologies with a lot of effort and dedication, but these are the ones that I control the best so far.",
+    "page.home.subtitle3": "Projects 🛠️",
+    "page.home.description3": "I enjoy creating projects that allow me to learn and improve my skills. Next I leave some of my projects."
 }

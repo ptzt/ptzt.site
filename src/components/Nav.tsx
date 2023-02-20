@@ -62,7 +62,7 @@ const LinkButton = ({ title, icon, href }: any) => {
     );
 };
 
-const Nav = () => {
+const Nav = (selected) => {
     const router = useRouter();
 
     const [mobileMenuOpen, setMenuOpen] = useState(false);
@@ -76,8 +76,9 @@ const Nav = () => {
             <motion.div className="hidden z-[999] fixed w-[90%] md:w-[50rem] xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6 rounded-md bg-white/60 dark:bg-[#12181d]/60 border border-slate-800/50 backdrop-blur-lg">
                 <div className="flex flex-row items-center justify-between gap-2">
                     <Theme />
-                    <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-                    <button onClick={() => i18n.changeLanguage("es")}>ES</button>
+                    <button className="cursor-pointer px-1 py-2 text-sm p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5" onClick={() => i18n.changeLanguage("en")}>EN</button>
+                    <button className="cursor-pointer px-1 py-2 text-sm p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5" onClick={() => i18n.changeLanguage("es")}>ES</button>
+
                     <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
                     {/* <LandingButton name="Contact" link="/contact" selected={router.pathname === "/contact"} /> */}
                 </div>
