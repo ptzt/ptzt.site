@@ -99,6 +99,8 @@ const Nav = () => {
             <motion.div className="xs:hidden z-[990] fixed w-full flex flex-row justify-between items-center px-4 py-3 bg-white/60 dark:bg-[#12181d]/60 border-b border-slate-800/50 backdrop-blur-lg">
                 <div className="flex flex-row items-center justify-between gap-2">
                     <Theme />
+                    <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+                    <button onClick={() => i18n.changeLanguage("es")}>ES</button>
                 </div>
 
                 <div className="flex flex-row items-center justify-center">
