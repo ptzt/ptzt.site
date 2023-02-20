@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { TechItem } from "@/components/TechItem";
 import RepoItem from "@/components/RepoItem";
 import {
@@ -15,13 +14,15 @@ import {
   SiJavascript,
   SiMongodb
 } from "react-icons/si";
+import { useTranslation } from 'react-i18next'
+
 
 interface AppProps {
-  stats: Record<string, number>;
   topRepos: Record<any, any>;
 }
 
-const Home = ({ stats, topRepos }: AppProps) => {
+const Home = ({ topRepos }: AppProps) => {
+  const [t] = useTranslation("global")
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -30,13 +31,9 @@ const Home = ({ stats, topRepos }: AppProps) => {
       transition={{ ease: "easeOut", duration: 0.15 }}
       className="mt-24 w-full mb-32"
     >
-      <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">Hola, soy Tomas👋</h1>
-      <p className="text-gray-800 dark:text-gray-300 leading-6 tracking-wide mb-12">
-
-        Soy un programador de 21 años de Argentina, me gusta el trabajo en equipo ya que de esa manera puedo aprender y compartir mis conocimientos.
-        Actualmente estoy centrado en el desarrollo front end, en constante capacitación para poder desarrollar código de calidad.
+      <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">{t("page.home.title")}</h1>
+      <p className="text-gray-800 dark:text-gray-300 leading-6 tracking-wide mb-12">{t("page.home.description")}
       </p>
-
       <h2 className="font-medium text-3xl mb-4">¿Que hago?💭</h2>
       <p className="text-gray-800 dark:text-gray-300 leading-6 font-light tracking-wide mb-12">
         Actualmente soy desarrollador front end con experiencia en React, y me encuentro realizando una capacitación en NextJS, pero me encuentro abierto a nuevas posibilidades y tecnologias que me ayuden a crecer profesionalmente.</p>

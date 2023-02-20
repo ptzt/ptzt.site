@@ -7,6 +7,7 @@ import { classNames } from "../util/className";
 import { ReactElement, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Tooltip } from "react-tippy";
+import { useTranslation } from 'react-i18next'
 
 const LandingButton = ({ name, link, selected }: { name: string; link: string; selected: boolean }) => {
     return (
@@ -68,12 +69,15 @@ const Nav = () => {
     const toggleMenu = () => {
         setMenuOpen(old => !old);
     };
+    const [t, i18n] = useTranslation("global")
 
     return (
         <>
             <motion.div className="hidden z-[999] fixed w-[90%] md:w-[50rem] xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6 rounded-md bg-white/60 dark:bg-[#12181d]/60 border border-slate-800/50 backdrop-blur-lg">
                 <div className="flex flex-row items-center justify-between gap-2">
                     <Theme />
+                    <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+                    <button onClick={() => i18n.changeLanguage("es")}>ES</button>
                     <LandingButton name="Home" link="/" selected={router.pathname === "/"} />
                     {/* <LandingButton name="Contact" link="/contact" selected={router.pathname === "/contact"} /> */}
                 </div>
