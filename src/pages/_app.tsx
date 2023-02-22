@@ -43,7 +43,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             </Head>
 
             <I18nextProvider i18n={i18next}>
-                <div className="text-black dark:text-white flex flex-row justify-center w-full h-full bg-gradient-to-bl from-white to-[#fff] dark:from-black dark:to-[#0d131f] min-h-screen">
+                <div className="text-black dark:text-white flex flex-row justify-center w-full h-full bg-gradient-to-bl from-white to-[#CBCBCB] dark:from-black dark:to-[#0d131f] min-h-screen">
                     <Nav />
                     <div className="w-[80%] md:w-[45rem]">
                         <AnimatePresence exitBeforeEnter>
