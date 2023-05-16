@@ -12,7 +12,7 @@ import EN from '../lang/global_en.json'
 
 i18next.init({
     interpolation: { escapeValue: false },
-    lng: "en",
+    lng: "es",
     resources: {
         es: {
             global: ES
