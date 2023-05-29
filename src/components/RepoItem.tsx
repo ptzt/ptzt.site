@@ -4,14 +4,24 @@ import { BiGitRepoForked } from "react-icons/bi";
 
 const Languages = {
     TypeScript: "#2b7489",
-    Python: "#3572A5",
+    JavaScript: "#F1E05A",
+    Python: '#FFFFFF'
 };
 
 interface RepoProps {
     name: string;
     description: string;
-    language: "TypeScript" | "Python";
+    language: "TypeScript" | "JavaScript";
 }
+
+function SafeHydrate({ children }: any) {
+    return (
+        <div suppressHydrationWarning>
+            {typeof window === 'undefined' ? null : children}
+        </div>
+    )
+}
+
 
 const RepoItem = ({ name, description, language }: RepoProps) => {
     return (
@@ -20,13 +30,13 @@ const RepoItem = ({ name, description, language }: RepoProps) => {
                 <h1 className="font-semibold mb-1">{name}</h1>
                 <p className="text-sm text-gray-900 dark:text-gray-100/70">{description}</p>
                 <div className="mt-auto flex flex-row gap-4 text-gray-700 dark:text-gray-300 text-sm">
-                    <p className="flex flex-row items-center">
+                    <div className="flex flex-row items-center">
                         <motion.div
                             className="w-3 h-3 rounded-full mr-1"
                             style={{ background: Languages[language], border: `solid 3px ${Languages[language]}` }}
                         />
                         {language}
-                    </p>
+                    </div>
 
                 </div>
             </div>
