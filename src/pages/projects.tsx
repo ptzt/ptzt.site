@@ -7,7 +7,7 @@ interface AppProps {
   topRepos: Record<any, any>;
 }
 
-const projects = ({ topRepos }: AppProps) => {
+const Projects = ({ topRepos }: AppProps) => {
   const [t] = useTranslation("global");
 
   return (
@@ -60,4 +60,4 @@ export async function getStaticProps() {
   };
 }
 
-export default projects;
+export default Projects;
