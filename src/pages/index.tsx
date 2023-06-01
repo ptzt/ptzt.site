@@ -12,10 +12,9 @@ import {
   SiTypescript,
   SiYarn,
   SiJavascript,
-  SiMongodb
+  SiMongodb,
 } from "react-icons/si";
-import { useTranslation } from 'react-i18next'
-
+import { useTranslation } from "react-i18next";
 
 interface AppProps {
   topRepos: Record<any, any>;
@@ -24,13 +23,13 @@ interface AppProps {
 function SafeHydrate({ children }: any) {
   return (
     <div suppressHydrationWarning>
-      {typeof window === 'undefined' ? null : children}
+      {typeof window === "undefined" ? null : children}
     </div>
-  )
+  );
 }
 
 const Home = ({ topRepos }: AppProps) => {
-  const [t] = useTranslation("global")
+  const [t] = useTranslation("global");
   return (
     <SafeHydrate>
       <motion.div
@@ -40,13 +39,21 @@ const Home = ({ topRepos }: AppProps) => {
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="mt-24 w-full mb-32"
       >
-        <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">{t("page.home.title")}</h1>
-        <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-12">{t("page.home.description")}
+        <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">
+          {t("page.home.title")}
+        </h1>
+        <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-12">
+          {t("page.home.description")}
         </p>
-        <h2 className="font-medium text-3xl mb-4">{t("page.home.subtitle1")}</h2>
+        <h2 className="font-medium text-3xl mb-4">
+          {t("page.home.subtitle1")}
+        </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-12">
-          {t("page.home.description1")}</p>
-        <h2 className="font-medium text-3xl mb-4">{t("page.home.subtitle2")}</h2>
+          {t("page.home.description1")}
+        </p>
+        <h2 className="font-medium text-3xl mb-4">
+          {t("page.home.subtitle2")}
+        </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
           {t("page.home.description2")}
         </p>
@@ -64,7 +71,9 @@ const Home = ({ topRepos }: AppProps) => {
           <TechItem icon={SiMongodb} name="MongoDB" />
         </div>
 
-        <h2 className="font-medium text-3xl mb-4">{t("page.home.subtitle3")}</h2>
+        {/* <h2 className="font-medium text-3xl mb-4">
+          {t("page.home.subtitle3")}
+        </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-6">
           {t("page.home.description3")}
         </p>
@@ -79,25 +88,31 @@ const Home = ({ topRepos }: AppProps) => {
               />
             );
           })}
-        </div>
+        </div> */}
       </motion.div>
     </SafeHydrate>
   );
 };
 
-export async function getStaticProps() {
-  const repos = await fetch(`https://api.github.com/users/ptzt/repos?type=owner&per_page=100`).then(res =>
-    res.json()
-  );
+// export async function getStaticProps() {
+//   const repos = await fetch(
+//     `https://api.github.com/users/ptzt/repos?type=owner&per_page=100`
+//   ).then((res) => res.json());
 
-  const topRepos = repos
-    .sort((a: Record<string, any>, b: Record<string, any>) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 4);
+//   let topRepos = [];
 
-  return {
-    props: { topRepos },
-    revalidate: 3600,
-  };
-}
+//   if (Array.isArray(repos)) {
+//     topRepos = repos
+//       .sort(
+//         (a: Record<string, any>, b: Record<string, any>) =>
+//           b.stargazers_count - a.stargazers_count
+//       )
+//       .slice(0, 4);
+//   }
+//   return {
+//     props: { topRepos },
+//     revalidate: 3600,
+//   };
+// }
 
 export default Home;
