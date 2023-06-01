@@ -96,8 +96,8 @@ const Nav = (selected) => {
           />
           <LandingButton
             name="Projects"
-            link="/Projects"
-            selected={router.pathname === "/Projects"}
+            link="/projects"
+            selected={router.pathname === "/projects"}
           />
         </div>
 
@@ -163,8 +163,8 @@ const Nav = (selected) => {
                 />
                 <MobileLandingButton
                   name="Projects"
-                  link="/Projects"
-                  selected={router.pathname === "/Projects"}
+                  link="/projects"
+                  selected={router.pathname === "/projects"}
                   onClick={() => setMenuOpen(false)}
                 />
               </div>
