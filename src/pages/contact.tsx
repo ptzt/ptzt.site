@@ -23,16 +23,16 @@ const Contact = () => {
 
                 <div className="row-start-1 md:row-auto">
                     <ContactLink
-                        name="@tomas"
+                        name="@example"
                         icon={<SiDiscord className="w-6 h-6 text-[#5865F2]" />}
-                        link=""
+                        link="https://discord.com"
                         borderColor="hover:border-[#5865F2]/50"
                     />
 
                     <ContactLink
-                        name="@ptztdev"
+                        name="@example"
                         icon={<SiTwitter className="w-6 h-6 text-[#1DA1F2]" />}
-                        link="https://twitter.com/ptztdev"
+                        link="https://twitter.com"
                         borderColor="hover:border-[#1DA1F2]/50"
                     />
                 </div>
