@@ -3,6 +3,7 @@ import EmailContent from "@/components/talk/EmailContent";
 import ContactLink from "../components/talk/ContactLink";
 import { SiTwitter, SiDiscord } from "react-icons/si";
 import { motion } from "framer-motion";
+import TimeStatus from "@/components/talk/TimeStatus";
 
 const Contact = () => {
     return (
@@ -18,21 +19,23 @@ const Contact = () => {
             ¿Tiene alguna consulta o desea conectarse? No dude en dejar un mensaje a continuación o ponerse en contacto a través de Discord, Twitter o correo electrónico.
             </p>
 
+            <TimeStatus />
+
             <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mb-20">
                 <EmailContent />
 
                 <div className="row-start-1 md:row-auto">
-                    <ContactLink
+                    {/* <ContactLink
                         name="@example"
                         icon={<SiDiscord className="w-6 h-6 text-[#5865F2]" />}
                         link="https://discord.com"
                         borderColor="hover:border-[#5865F2]/50"
-                    />
+                    /> */}
 
                     <ContactLink
-                        name="@example"
+                        name="@ptztdev"
                         icon={<SiTwitter className="w-6 h-6 text-[#1DA1F2]" />}
-                        link="https://twitter.com"
+                        link="https://twitter.com/ptztdev"
                         borderColor="hover:border-[#1DA1F2]/50"
                     />
                 </div>
