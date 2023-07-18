@@ -16,7 +16,7 @@ const Contact = () => {
         >
             <h1 className="text-black dark:text-white font-bold text-3xl mb-3 mt-8">Charlemos 💬</h1>
             <p className="text-gray-800 dark:text-gray-200 mb-6">
-            ¿Tiene alguna consulta o desea conectarse? No dude en dejar un mensaje a continuación o ponerse en contacto a través de Discord, Twitter o correo electrónico.
+            ¿Tiene alguna consulta o desea conectarse? No dude en dejar un mensaje a continuación o ponerse en contacto a través de Twitter o correo electrónico.
             </p>
 
             <TimeStatus />

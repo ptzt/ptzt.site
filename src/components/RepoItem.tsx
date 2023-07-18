@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { AiOutlineStar } from "react-icons/ai";
-import { BiGitRepoForked } from "react-icons/bi";
 
 const Languages = {
   TypeScript: "#2b7489",
@@ -10,13 +8,14 @@ const Languages = {
 };
 
 interface RepoProps {
+  id: number;
   name: string;
   description: string;
   language: "TypeScript" | "JavaScript";
   homepage: string;
 }
 
-const RepoItem = ({ name, description, language, homepage }: RepoProps) => {
+const RepoItem = ({ id, name, description, language, homepage }: RepoProps) => {
   return (
     <div className="flex flex-col h-36 p-4 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 ">
       <a
@@ -40,9 +39,9 @@ const RepoItem = ({ name, description, language, homepage }: RepoProps) => {
           />
           {language}
         </div>
-        <Link href={`${homepage}`} target="_blank">
+        <Link href={`/project/${id}`}>
           <button className="dark:bg-slate-50 hover:bg-slate-500 dark:text-black font-bold py-2 px-4 rounded-full bg-black text-white ">
-            Deploy
+            Ver mas
           </button>
         </Link>
       </div>

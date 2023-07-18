@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Theme from "./Theme";
 import { classNames } from "../util/className";
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Tooltip } from "react-tippy";
 import { useTranslation } from "react-i18next";
@@ -72,7 +72,7 @@ const LinkButton = ({ title, icon, href }: any) => {
   );
 };
 
-const Nav = (selected) => {
+const Nav = (selected: any) => {
   const router = useRouter();
 
   const [mobileMenuOpen, setMenuOpen] = useState(false);
@@ -96,10 +96,10 @@ const Nav = (selected) => {
           />
           <LandingButton
             name="Projects"
-            link="/projects"
-            selected={router.pathname === "/projects"}
+            link="/project"
+            selected={router.pathname === "/project"}
           />
-           <LandingButton
+          <LandingButton
             name="Contact"
             link="/contact"
             selected={router.pathname === "/contact"}

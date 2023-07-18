@@ -31,6 +31,7 @@ const Projects = ({ topRepos }: AppProps) => {
               description={repo.description}
               language={repo.language}
               homepage={repo.homepage}
+              id={repo.id}
             />
           );
         })}
@@ -41,7 +42,9 @@ const Projects = ({ topRepos }: AppProps) => {
 
 export async function getStaticProps() {
   const repos = await fetch(
-    `https://api.github.com/users/ptzt/repos?type=owner&per_page=100`
+    `https://api.github.com/users/ptzt/repos?type=owner&per_page=10`
+    //`https://jsonplaceholder.typicode.com/users`
+
   ).then((res) => res.json());
 
   let topRepos = [];
