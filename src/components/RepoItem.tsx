@@ -15,7 +15,7 @@ interface RepoProps {
   homepage: string;
 }
 
-const RepoItem = ({ id, name, description, language, homepage }: RepoProps) => {
+const RepoItem = ({ id, name, description, language }: RepoProps) => {
   return (
     <div className="flex flex-col h-36 p-4 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 ">
       <h1 className="font-semibold mb-1 ">{name}</h1>

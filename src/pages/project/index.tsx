@@ -1,14 +1,28 @@
-import React from "react";
+import RepoItem from '@/components/RepoItem';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
-import RepoItem from "@/components/RepoItem";
-import { motion } from "framer-motion";
 
-interface AppProps {
-  topRepos: Record<any, any>;
-}
-
-const Projects = ({ topRepos }: AppProps) => {
+const Projects = () => {
+  const [projects, setProjects] = useState<any>([]);
+  const [loading, setLoading] = useState(true)
   const [t] = useTranslation("global");
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('https://ptztsitebackend-production.up.railway.app/api/projects');
+        const data = await response.json();
+        setProjects(data);
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false)
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <motion.div
@@ -23,44 +37,19 @@ const Projects = ({ topRepos }: AppProps) => {
         {t("page.home.description3")}
       </p>
       <div className="w-full grid grid-cols-1 md:grid-cols-1 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
-        {topRepos.map((repo: Record<string, any>) => {
+        {projects.map((project) => {
           return (
             <RepoItem
-              key={repo.name}
-              name={repo.name}
-              description={repo.description}
-              language={repo.language}
-              homepage={repo.homepage}
-              id={repo.id}
+              key={project.id}
+              name={project.properties.title.rich_text[0].plain_text}
+              description={project.properties.description.rich_text[0].plain_text}
+              language={project.properties.language.rich_text[0].plain_text}
+              id={project.properties.ID.unique_id.number}
             />
           );
         })}
       </div>
     </motion.div>
   );
-};
-
-export async function getStaticProps() {
-  const repos = await fetch(
-    `https://api.github.com/users/ptzt/repos?type=owner&per_page=10`
-    //`https://jsonplaceholder.typicode.com/users`
-
-  ).then((res) => res.json());
-
-  let topRepos = [];
-
-  if (Array.isArray(repos)) {
-    topRepos = repos
-      .sort(
-        (a: Record<string, any>, b: Record<string, any>) =>
-          b.stargazers_count - a.stargazers_count
-      )
-      .slice(0, 4);
-  }
-  return {
-    props: { topRepos },
-    revalidate: 3600,
-  };
 }
-
 export default Projects;
