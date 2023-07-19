@@ -4,15 +4,14 @@ import Link from "next/link";
 const Languages = {
   TypeScript: "#2b7489",
   JavaScript: "#F1E05A",
-  Python: "#FFFFFF",
+  Python: "#12c000",
 };
 
 interface RepoProps {
   id: number;
   name: string;
   description: string;
-  language: "TypeScript" | "JavaScript";
-  homepage: string;
+  language: string;
 }
 
 const RepoItem = ({ id, name, description, language }: RepoProps) => {
@@ -33,7 +32,7 @@ const RepoItem = ({ id, name, description, language }: RepoProps) => {
           />
           {language}
         </div>
-        <Link href={`/project/${id}`}>
+        <Link href={`/project/${id}`} key={id}>
           <button className="dark:bg-slate-50 hover:bg-slate-500 dark:text-black font-bold py-2 px-4 rounded-full bg-black text-white ">
             Ver mas
           </button>
