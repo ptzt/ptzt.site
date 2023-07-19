@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Languages = {
+interface LanguageColors {
+  [key: string]: string;
+}
+
+const Languages: LanguageColors = {
   TypeScript: "#2b7489",
   JavaScript: "#F1E05A",
   Python: "#12c000",
