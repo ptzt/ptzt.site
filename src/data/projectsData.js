@@ -18,6 +18,12 @@ const projectsData = [
         description: "Descripción del proyecto 3",
         language: "Python"
       },
+      {
+        id: 4,
+        name: "Proyecto 4",
+        description: "Descripción del proyecto 4",
+        language: "React Native"
+      },
   ];
   
   export default projectsData;
