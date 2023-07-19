@@ -18,13 +18,7 @@ interface RepoProps {
 const RepoItem = ({ id, name, description, language, homepage }: RepoProps) => {
   return (
     <div className="flex flex-col h-36 p-4 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 ">
-      <a
-        href={`https://github.com/ptzt/${name}`}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <h1 className="font-semibold mb-1 cursor-pointer">{name}</h1>
-      </a>
+      <h1 className="font-semibold mb-1 ">{name}</h1>
       <p className="text-sm text-gray-900 dark:text-gray-100/70">
         {description}
       </p>

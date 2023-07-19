@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@notionhq/client": "^2.2.8",
     "@react-spring/web": "^9.7.2",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
