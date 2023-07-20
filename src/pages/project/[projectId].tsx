@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import projectsData from '../../data/projectsData';
-import images from '../../data/images'
 import { DiReact, DiJavascript1, DiPython, DiCode } from 'react-icons/di';
 import {
     SiNextdotjs,
@@ -25,12 +24,12 @@ const languageIcons = {
 interface ProjectProps {
     project: {
         id: number;
-        name: string;
-        description: string;
-        language: string;
-        images: string;
-        repo: string;
-        deploy: string;
+        name?: string;
+        description?: string;
+        language?: string;
+        images?: string[];
+        repo?: string;
+        deploy?: string;
     };
 }
 

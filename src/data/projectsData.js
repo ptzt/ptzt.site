@@ -17,19 +17,30 @@ const projectsData = [
     id: 2,
     name: "Proyecto 2",
     description: "Descripción del proyecto 2",
-    language: "JavaScript"
+    language: "JavaScript",
+    images: [],
+    repo: '',
+    deploy: '',
+
+
   },
   {
     id: 3,
     name: "Proyecto 3",
     description: "Descripción del proyecto 3",
-    language: "Python"
+    language: "Python",
+    images: [],
+    repo: '',
+    deploy: ''
   },
   {
     id: 4,
     name: "Proyecto 4",
     description: "Descripción del proyecto 4",
     language: "React Native",
+    images: [],
+    repo: '',
+    deploy: ''
 
   },
   {
@@ -37,6 +48,9 @@ const projectsData = [
     name: "Proyecto 5",
     description: "Descripción del proyecto 5",
     language: "",
+    images: [],
+    repo: '',
+    deploy: ''
 
   },
 ];
