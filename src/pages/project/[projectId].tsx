@@ -12,6 +12,7 @@ import {
     SiPython
 } from "react-icons/si";
 import Image from 'next/image'
+import Link from 'next/link';
 
 const languageIcons = {
     TypeScript: <SiTypescript size={32} />,
@@ -28,11 +29,13 @@ interface ProjectProps {
         description: string;
         language: string;
         images: string;
+        repo: string;
+        deploy: string;
     };
 }
 
 const Project: React.FC<ProjectProps> = ({ project }) => {
-
+    console.log(project)
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -54,13 +57,33 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                 {project.description}
             </p>
 
-            {/* Mapear las imágenes
+            {/* Mapear las imágenes */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {project.images?.map((imageUrl, index) => (
-                    <Image key={index} src={imageUrl} alt={`Imagen ${index + 1}`} width={500} height={500} />
+                    <Image
+                        key={index}
+                        src={imageUrl}
+                        alt={`Imagen ${index + 1}`}
+                        width={500}
+                        height={500}
+                        style={{ height: "200px", objectFit: "cover" }}
+                    />
                 ))}
-            </div> */}
+            </div>
 
+            {/* Botones */}
+            <div className="flex justify-between mt-10">
+                <Link href={project.repo || "null"} target="_blank">
+                    <button className="dark:bg-slate-50 hover:bg-slate-500 dark:text-black font-bold py-2 px-4 rounded-full bg-black text-white">
+                        Ver código
+                    </button>
+                </Link>
+                <Link href={project.deploy || "null"} target="_blank">
+                    <button className="dark:bg-slate-50 hover:bg-slate-500 dark:text-black font-bold py-2 px-4 rounded-full bg-black text-white">
+                        Ver deploy
+                    </button>
+                </Link>
+            </div>
         </motion.div>
     );
 };
@@ -84,7 +107,10 @@ export async function getStaticProps({ params }: { params: { projectId: string }
                 id: project.id,
                 name: project.name,
                 description: project.description,
-                language: project.language
+                language: project.language,
+                images: project.images,
+                repo: project.repo,
+                deploy: project.deploy
             },
         },
         revalidate: 3600,

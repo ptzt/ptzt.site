@@ -10,6 +10,8 @@ interface Project {
   name: string;
   description: string;
   language: string;
+  image: string;
+  repo: string;
 }
 
 const truncateDescription = (description, maxWords) => {
@@ -56,7 +58,7 @@ const Projects: React.FC = () => {
             <RepoItem
               key={project.id}
               name={project.name}
-              description={truncateDescription(project.description, 10)}
+              description={truncateDescription(project.description, 5)}
               language={project.language}
               id={project.id}
             />
