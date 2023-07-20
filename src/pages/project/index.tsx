@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import projectsData from '../../data/projectsData';
+import { BeatLoader } from 'react-spinners';
 
 interface Project {
   id: number;
@@ -20,7 +21,7 @@ const Projects: React.FC = () => {
     setTimeout(() => {
       setProjects(projectsData);
       setLoading(false);
-    }, 1000);
+    }, 1500);
   }, []);
 
   return (
@@ -35,17 +36,24 @@ const Projects: React.FC = () => {
       <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-6">
         {t('page.home.description3')}
       </p>
-      <div className="w-full grid grid-cols-1 md:grid-cols-1 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
-        {projects.map((project) => (
-          <RepoItem
-            key={project.id}
-            name={project.name}
-            description={project.description}
-            language={project.language}
-            id={project.id}
-          />
-        ))}
-      </div>
+      {/* Loading */}
+      {loading ? (
+        <div className="flex justify-center items-center h-64">
+          <BeatLoader color='grey' />
+        </div>
+      ) : (
+        <div className="w-full grid grid-cols-1 md:grid-cols-1 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
+          {projects.map((project) => (
+            <RepoItem
+              key={project.id}
+              name={project.name}
+              description={project.description}
+              language={project.language}
+              id={project.id}
+            />
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 };
