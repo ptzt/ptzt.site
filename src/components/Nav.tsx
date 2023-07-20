@@ -23,7 +23,7 @@ const LandingButton = ({
       <a
         className={classNames(
           selected
-            ? "bg-black/10 dark:bg-[#c8c8dc]/10"
+            ? "bg-black/10 dark:bg-[#c8c8dc]/10 font-bold	"
             : "bg-transparent hover:bg-gray-700/5 dark:hover:bg-[#c8c8dc]/5 dark:text-white",
           "cursor-pointer px-4 py-2 text-sm rounded-md text-black/80 hover:text-black dark:text-white/80 dark:hover:text-white transition-all duration-75"
         )}
@@ -90,17 +90,17 @@ const Nav = (selected: any) => {
                     <button className="cursor-pointer px-1 py-2 text-sm p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5" onClick={() => i18n.changeLanguage("es")}>ES</button> */}
 
           <LandingButton
-            name="Home"
+            name="Inicio"
             link="/"
             selected={router.pathname === "/"}
           />
           <LandingButton
-            name="Projects"
+            name="Proyectos"
             link="/project"
             selected={router.pathname === "/project"}
           />
           <LandingButton
-            name="Contact"
+            name="Contacto"
             link="/contact"
             selected={router.pathname === "/contact"}
           />
@@ -161,19 +161,19 @@ const Nav = (selected: any) => {
             >
               <div className="flex flex-row w-full justify-evenly">
                 <MobileLandingButton
-                  name="Home"
+                  name="Inicio"
                   link="/"
                   selected={router.pathname === "/"}
                   onClick={() => setMenuOpen(false)}
                 />
                 <MobileLandingButton
-                  name="Projects"
-                  link="/projects"
-                  selected={router.pathname === "/projects"}
+                  name="Proyectos"
+                  link="/project"
+                  selected={router.pathname === "/project"}
                   onClick={() => setMenuOpen(false)}
                 />
                 <MobileLandingButton
-                  name="Contact"
+                  name="Contacto"
                   link="/contact"
                   selected={router.pathname === "/contact"}
                   onClick={() => setMenuOpen(false)}
