@@ -70,49 +70,11 @@ const Home = ({ topRepos }: AppProps) => {
           <TechItem icon={SiGit} name="Git" />
           <TechItem icon={SiMongodb} name="MongoDB" />
         </div>
-
-        {/* <h2 className="font-medium text-3xl mb-4">
-          {t("page.home.subtitle3")}
-        </h2>
-        <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-6">
-          {t("page.home.description3")}
-        </p>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
-          {topRepos.map((repo: Record<string, any>) => {
-            return (
-              <RepoItem
-                key={repo.name}
-                name={repo.name}
-                description={repo.description}
-                language={repo.language}
-              />
-            );
-          })}
-        </div> */}
       </motion.div>
     </SafeHydrate>
   );
 };
 
-// export async function getStaticProps() {
-//   const repos = await fetch(
-//     `https://api.github.com/users/ptzt/repos?type=owner&per_page=100`
-//   ).then((res) => res.json());
 
-//   let topRepos = [];
-
-//   if (Array.isArray(repos)) {
-//     topRepos = repos
-//       .sort(
-//         (a: Record<string, any>, b: Record<string, any>) =>
-//           b.stargazers_count - a.stargazers_count
-//       )
-//       .slice(0, 4);
-//   }
-//   return {
-//     props: { topRepos },
-//     revalidate: 3600,
-//   };
-// }
 
 export default Home;
