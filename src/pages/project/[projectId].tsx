@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import projectsData from '../../data/projectsData';
-import { DiReact, DiJavascript1, DiPython, DiCode } from 'react-icons/di';
 import {
     SiNextdotjs,
     SiNodedotjs,
@@ -12,6 +11,8 @@ import {
 } from "react-icons/si";
 import Image from 'next/image'
 import Link from 'next/link';
+import { useState } from 'react';
+import FsLightbox from "fslightbox-react";
 
 const languageIcons = {
     TypeScript: <SiTypescript size={32} />,
@@ -34,7 +35,8 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ project }) => {
-    console.log(project)
+    const [toggler, setToggler] = useState(false);
+
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -57,7 +59,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             </p>
 
             {/* Mapear las imágenes */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
                 {project.images?.map((imageUrl, index) => (
                     <Image
                         key={index}
@@ -66,9 +68,18 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                         width={500}
                         height={500}
                         style={{ height: "200px", objectFit: "cover" }}
+                        onClick={() => setToggler(!toggler)}
+                        className='hover:opacity-70 cursor-pointer'
                     />
+
                 ))}
+                <FsLightbox
+                    toggler={toggler}
+                    sources={project.images}
+                />
             </div>
+
+
 
             {/* Botones */}
             <div className="flex justify-between mt-10">
@@ -83,7 +94,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                     </button>
                 </Link>
             </div>
-        </motion.div>
+        </motion.div >
     );
 };
 
