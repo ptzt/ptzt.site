@@ -16,9 +16,7 @@ import {
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
 
-interface AppProps {
-  topRepos: Record<any, any>;
-}
+
 
 function SafeHydrate({ children }: any) {
   return (
@@ -28,7 +26,7 @@ function SafeHydrate({ children }: any) {
   );
 }
 
-const Home = ({ topRepos }: AppProps) => {
+const Home = () => {
   const [t] = useTranslation("global");
   return (
     <SafeHydrate>

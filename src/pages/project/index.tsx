@@ -12,6 +12,15 @@ interface Project {
   language: string;
 }
 
+const truncateDescription = (description, maxWords) => {
+  const words = description.split(' ');
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...'; // Agrega "..." al final para indicar que se truncó la descripción
+  }
+  return description;
+};
+
+
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -47,7 +56,7 @@ const Projects: React.FC = () => {
             <RepoItem
               key={project.id}
               name={project.name}
-              description={project.description}
+              description={truncateDescription(project.description, 10)}
               language={project.language}
               id={project.id}
             />
