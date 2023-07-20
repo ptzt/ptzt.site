@@ -69,7 +69,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                         height={500}
                         style={{ height: "200px", objectFit: "cover" }}
                         onClick={() => setToggler(!toggler)}
-                        className='hover:opacity-70 cursor-pointer'
+                        className='hover:opacity-50 cursor-pointer rounded-xl'
                     />
 
                 ))}
