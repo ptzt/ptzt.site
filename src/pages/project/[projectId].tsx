@@ -83,16 +83,20 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
 
             {/* Botones */}
             <div className="flex justify-between mt-10">
-                <Link href={project.repo || "null"} target="_blank">
-                    <button className="dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black bg-white text-black font-bold py-2 px-4 rounded-full hover:bg-black hover:text-white">
-                        Ver código
-                    </button>
-                </Link>
-                <Link href={project.deploy || "null"} target="_blank">
-                    <button className="dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black bg-white text-black font-bold py-2 px-4 rounded-full hover:bg-black hover:text-white">
-                        Ver deploy
-                    </button>
-                </Link>
+                {project.repo && project.repo !== "" && (
+                    <Link href={project.repo} target="_blank">
+                        <button className="dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black bg-white text-black font-bold py-2 px-4 rounded-full hover:bg-black hover:text-white">
+                            Ver código
+                        </button>
+                    </Link>
+                )}
+                {project.deploy && project.deploy !== "" && (
+                    <Link href={project.deploy} target="_blank">
+                        <button className="dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black bg-white text-black font-bold py-2 px-4 rounded-full hover:bg-black hover:text-white">
+                            Ver deploy
+                        </button>
+                    </Link>
+                )}
             </div>
         </motion.div >
     );

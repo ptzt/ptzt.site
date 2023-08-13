@@ -14,7 +14,7 @@ interface Project {
   repo: string;
 }
 
-const truncateDescription = (description, maxWords) => {
+const truncateDescription = (description: string, maxWords: number) => {
   const words = description.split(' ');
   if (words.length > maxWords) {
     return words.slice(0, maxWords).join(' ') + '...'; // Agrega "..." al final para indicar que se truncó la descripción
