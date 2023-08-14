@@ -25,26 +25,27 @@ const ContactLink = ({
     }));
 
     return (
-        <Link href={link} passHref>
-            <animated.a
-                target="_blank"
-                rel="noreferrer noopener"
-                onMouseMove={({ clientX: x, clientY: y }: { clientX: number; clientY: number }) =>
-                    set({ xys: calc(x, y) })
-                }
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
-                style={{ transform: props.xys.to(trans) }}
-                className={classNames(
-                    borderColor ? borderColor : "hover:border-white/50",
-                    `shadow-white shadow-none hover:shadow-lg mb-4 row-start-3 flex flex-row items-center bg-opacity-50 bg-white dark:bg-white/5 rounded-md p-4 border border-zinc-800/50 cursor-pointer transition-colors duration-150`
-                )}
-            >
-                {icon}
-                <h1 className="font-medium text-sm text-black/80 dark:text-slate-400 mx-3">{name}</h1>
-                <FiExternalLink className="w-5 h-5 text-gray-600" />
-            </animated.a>
-        </Link>
+        <a
+            href={link}
+            target="_blank"
+            rel="noreferrer noopener"
+            onMouseMove={({ clientX: x, clientY: y }: { clientX: number; clientY: number }) =>
+                set({ xys: calc(x, y) })
+            }
+            onMouseLeave={() => set({ xys: [0, 0, 1] })}
+            style={{ transform: props.xys.to(trans) }}
+            className={classNames(
+                borderColor ? borderColor : "hover:border-white/50",
+                `shadow-white shadow-none hover:shadow-lg mb-4 row-start-3 flex flex-row items-center bg-opacity-50 bg-white dark:bg-white/5 rounded-md p-4 border border-zinc-800/50 cursor-pointer transition-colors duration-150`
+            )}
+        >
+            {icon}
+            <h1 className="font-medium text-sm text-black/80 dark:text-slate-400 mx-3">{name}</h1>
+            <FiExternalLink className="w-5 h-5 text-gray-600" />
+        </a>
     );
 };
 
 export default ContactLink;
+
+

@@ -67,7 +67,7 @@ const EmailContent = () => {
 
     return (
         <div className="md:col-span-2 h-auto min-h-[21.5rem] row-span-3 bg-opacity-50 bg-white dark:bg-white/5 rounded-md p-4 border border-zinc-800/50">
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode="wait">
                 {messageSent && (
                     <motion.p
                         key={"contactThankYou"}
