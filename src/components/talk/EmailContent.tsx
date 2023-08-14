@@ -41,7 +41,8 @@ const EmailContent = () => {
                 serviceId,
                 templateId,
                 {
-                    to_email: email.current,
+                    to_name: 'Tomas',
+                    email: email.current,
                     message: message.current,
                 },
                 userId
