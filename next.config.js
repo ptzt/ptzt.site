@@ -10,6 +10,9 @@ module.exports = {
     domains: ['i.imgur.com'],
   },
   reactStrictMode: true,
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

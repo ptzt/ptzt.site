@@ -16,7 +16,7 @@ const Contact = () => {
         >
             <h1 className="text-black dark:text-white font-bold text-3xl mb-3 mt-8">Charlemos 💬</h1>
             <p className="text-gray-800 dark:text-gray-200 mb-6">
-            ¿Tiene alguna consulta o desea conectarse? No dude en dejar un mensaje a continuación o ponerse en contacto a través de Twitter o correo electrónico.
+                ¿Tiene alguna consulta o desea conectarse? No dude en dejar un mensaje a continuación o ponerse en contacto a través de Twitter o correo electrónico.
             </p>
 
             <TimeStatus />
@@ -25,13 +25,6 @@ const Contact = () => {
                 <EmailContent />
 
                 <div className="row-start-1 md:row-auto">
-                    {/* <ContactLink
-                        name="@example"
-                        icon={<SiDiscord className="w-6 h-6 text-[#5865F2]" />}
-                        link="https://discord.com"
-                        borderColor="hover:border-[#5865F2]/50"
-                    /> */}
-
                     <ContactLink
                         name="@ptztdev"
                         icon={<SiTwitter className="w-6 h-6 text-[#1DA1F2]" />}
