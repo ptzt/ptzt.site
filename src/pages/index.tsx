@@ -17,7 +17,6 @@ import {
 import { useTranslation } from "react-i18next";
 
 
-
 function SafeHydrate({ children }: any) {
   return (
     <div suppressHydrationWarning>
@@ -26,7 +25,13 @@ function SafeHydrate({ children }: any) {
   );
 }
 
-const Home = () => {
+interface AppProps {
+  stats: Record<string, number>
+  topRepos: Record<any, any>
+}
+
+
+const Index = ({ stats, topRepos }: AppProps) => {
   const [t] = useTranslation("global");
   return (
     <SafeHydrate>
@@ -68,11 +73,48 @@ const Home = () => {
           <TechItem icon={SiGit} name="Git" />
           <TechItem icon={SiMongodb} name="MongoDB" />
         </div>
+
+        <h2 className="font-medium text-3xl mb-4">
+          {t("page.home.subtitle3")}
+        </h2>
+        <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
+          {t("page.home.description3")}
+        </p>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
+          {topRepos.map((repo: Record<string, any>) => {
+            return (
+              <RepoItem
+                key={repo.name}
+                name={repo.name}
+                description={repo.description}
+                stars={repo.stargazers_count}
+                forks={repo.forks_count}
+                language={repo.language}
+              />
+            );
+          })}
+        </div>
       </motion.div>
     </SafeHydrate>
   );
 };
 
+export async function getStaticProps() {
+  const stats = await fetch(`https://api.github-star-counter.workers.dev/user/ptzt`).then(res => res.json());
+  const repos = await fetch(`https://api.github.com/users/ptzt/repos?type=owner&per_page=100`).then(res =>
+    res.json()
+  );
+
+  const topRepos = repos
+    .sort((a: Record<string, any>, b: Record<string, any>) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 4);
+
+  return {
+    props: { stats, topRepos },
+    revalidate: 3600,
+  };
+}
 
 
-export default Home;
+
+export default Index;

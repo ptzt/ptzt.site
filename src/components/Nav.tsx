@@ -95,11 +95,6 @@ const Nav = (selected: any) => {
             selected={router.pathname === "/"}
           />
           <LandingButton
-            name="Proyectos"
-            link="/project"
-            selected={router.pathname === "/project"}
-          />
-          <LandingButton
             name="Contacto"
             link="/contact"
             selected={router.pathname === "/contact"}
@@ -167,19 +162,12 @@ const Nav = (selected: any) => {
                   onClick={() => setMenuOpen(false)}
                 />
                 <MobileLandingButton
-                  name="Proyectos"
-                  link="/project"
-                  selected={router.pathname === "/project"}
-                  onClick={() => setMenuOpen(false)}
-                />
-                <MobileLandingButton
                   name="Contacto"
                   link="/contact"
                   selected={router.pathname === "/contact"}
                   onClick={() => setMenuOpen(false)}
                 />
               </div>
-
               <div className="flex flex-row items-center justify-center gap-6 py-4">
                 <LinkButton
                   title="GitHub"
