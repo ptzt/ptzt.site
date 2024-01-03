@@ -14,7 +14,6 @@ import {
   SiJavascript,
   SiMongodb,
 } from "react-icons/si";
-import { useTranslation } from "react-i18next";
 
 
 function SafeHydrate({ children }: any) {
@@ -32,7 +31,6 @@ interface AppProps {
 
 
 const Index = ({ stats, topRepos }: AppProps) => {
-  const [t] = useTranslation("global");
   return (
     <SafeHydrate>
       <motion.div
@@ -42,23 +40,23 @@ const Index = ({ stats, topRepos }: AppProps) => {
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="mt-24 w-full mb-32"
       >
-        <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4">
-          {t("page.home.title")}
+        <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4 md:mt-30">
+          Hola, soy Tomas👋
         </h1>
         <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-12">
-          {t("page.home.description")}
+          Soy un programador de 22 años de Argentina y me gusta el trabajo en equipo, ya que de esa manera puedo aprender y compartir mis conocimientos. Actualmente estoy centrado en el desarrollo frontend y me mantengo en constante capacitación para poder desarrollar código de calidad.
         </p>
         <h2 className="font-medium text-3xl mb-4">
-          {t("page.home.subtitle1")}
+          ¿Qué hago?💭
         </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-12">
-          {t("page.home.description1")}
+          Actualmente soy desarrollador front end con experiencia en React, y me encuentro realizando una capacitación en NextJS, pero me encuentro abierto a nuevas propuestas y tecnologias que me ayuden a crecer profesionalmente.
         </p>
         <h2 className="font-medium text-3xl mb-4">
-          {t("page.home.subtitle2")}
+          Tecnologías💻
         </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
-          {t("page.home.description2")}
+          Utilizo una amplia gama de herramientas para abordar cada obstáculo de la manera más eficiente posible, voy aprendiendo tecnologias nuevas con mucho esfuerzo y dedicacion, pero estas son las que mejor controlo hasta el momento.
         </p>
         <div className="w-full flex flex-wrap flex-row justify-center p-1 border border-slate-800 rounded-md bg-white/10 dark:bg-black/10 mb-12">
           <TechItem icon={SiTypescript} name="TypeScript" />
@@ -75,10 +73,10 @@ const Index = ({ stats, topRepos }: AppProps) => {
         </div>
 
         <h2 className="font-medium text-3xl mb-4">
-          {t("page.home.subtitle3")}
+          Proyectos 🛠️
         </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
-          {t("page.home.description3")}
+          Disfruto creando proyectos que me permitan aprender y mejorar mis habilidades. A continuacion dejo algunos de mis proyectos.
         </p>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
           {topRepos.map((repo: Record<string, any>) => {

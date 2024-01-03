@@ -7,7 +7,6 @@ import { classNames } from "../util/className";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Tooltip } from "react-tippy";
-import { useTranslation } from "react-i18next";
 
 const LandingButton = ({
   name,
@@ -79,16 +78,12 @@ const Nav = (selected: any) => {
   const toggleMenu = () => {
     setMenuOpen((old) => !old);
   };
-  const [t, i18n] = useTranslation("global");
 
   return (
     <>
       <motion.div className="hidden z-[999] fixed w-[90%] md:w-[50rem] xs:flex flex-row justify-between items-center px-4 py-2 mt-4 md:mt-6 rounded-md bg-white/60 dark:bg-[#12181d]/60 border border-slate-800/50 backdrop-blur-lg">
         <div className="flex flex-row items-center justify-between gap-2">
           <Theme />
-          {/* <button className="cursor-pointer px-1 py-2 text-sm p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5" onClick={() => i18n.changeLanguage("en")}>EN</button>
-                    <button className="cursor-pointer px-1 py-2 text-sm p-2 rounded-md bg-transparent hover:bg-black/5 dark:hover:bg-white/5" onClick={() => i18n.changeLanguage("es")}>ES</button> */}
-
           <LandingButton
             name="Inicio"
             link="/"
