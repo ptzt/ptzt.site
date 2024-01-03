@@ -100,13 +100,15 @@ const Nav = (selected: any) => {
           <LinkButton
             title="GitHub"
             href={"https://github.com/ptzt"}
-            icon={<SiGithub className="w-6 h-6 cursor-pointer" />}
-          />
+            icon={
+              <SiGithub className="w-6 h-6 cursor-pointer dark:hover:fill-white fill-gray-400 transition-colors hover:fill-black" />
+            } />
           <LinkButton
             title="LinkedIn"
             href={"https://linkedin.com/in/tomasmillandev"}
-            icon={<SiLinkedin className="w-6 h-6 cursor-pointer" />}
-          />
+            icon={
+              <SiLinkedin className="w-6 h-6 cursor-pointer dark:hover:fill-white fill-gray-400 transition-colors hover:fill-black" />
+            } />
         </div>
       </motion.div>
 
