@@ -25,12 +25,11 @@ function SafeHydrate({ children }: any) {
 }
 
 interface AppProps {
-  stats: Record<string, number>
   topRepos: Record<any, any>
 }
 
 
-const Index = ({ stats, topRepos }: AppProps) => {
+const Index = ({ topRepos }: AppProps) => {
   return (
     <SafeHydrate>
       <motion.div
@@ -40,7 +39,7 @@ const Index = ({ stats, topRepos }: AppProps) => {
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="mt-24 w-full mb-32"
       >
-        <h1 className="mt-36 font-bold text-4xl md:text-5xl mb-4 md:mt-30">
+        <h1 className="mt-28 font-bold text-4xl md:text-5xl mb-4 ">
           Hola, soy Tomas👋
         </h1>
         <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-12">
@@ -64,7 +63,6 @@ const Index = ({ stats, topRepos }: AppProps) => {
           <TechItem icon={SiReact} name="React.js" />
           <TechItem icon={SiNodeJs} name="Node.js" />
           <TechItem icon={SiJavascript} name="JavaScript" />
-          <TechItem icon={SiYarn} name="Yarn" />
           <TechItem icon={SiNextJs} name="Next.js" />
           <TechItem icon={SiTailwindCSS} name="TailwindCSS" />
           <TechItem icon={SiPostgresql} name="Postgresql" />
@@ -108,7 +106,7 @@ export async function getStaticProps() {
     .slice(0, 4);
 
   return {
-    props: { stats, topRepos },
+    props: { topRepos },
     revalidate: 3600,
   };
 }
