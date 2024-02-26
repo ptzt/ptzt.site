@@ -28,11 +28,6 @@ module.exports = {
         permanent: true,
       },
       {
-        source: '/twitter',
-        destination: 'https://twitter.com/millantomas_',
-        permanent: true,
-      },
-      {
         source: '/linkedin',
         destination: 'https://linkedin.com/in/tomasmillandev',
         permanent: true,
