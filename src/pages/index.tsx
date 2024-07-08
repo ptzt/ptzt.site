@@ -26,12 +26,9 @@ function SafeHydrate({ children }: any) {
   );
 }
 
-interface AppProps {
-  topRepos: Record<any, any>
-}
-
 const posts = [{
   id: 1,
+  url: "https://www.feca.app/",
   name: "Feca App",
   description: "Aplicacion de café",
   language: "JavaScript",
@@ -39,13 +36,14 @@ const posts = [{
 
 {
   id: 2,
+  url: "https://github.com/ptzt/ptzt.site",
   name: "ptzt.site",
   description: "Portfolio",
   language: "TypeScript"
 }
 ]
 
-const Index = ({ topRepos }: AppProps) => {
+const Index = () => {
   return (
     <SafeHydrate>
       <motion.div
@@ -55,17 +53,17 @@ const Index = ({ topRepos }: AppProps) => {
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="mt-24 w-full mb-14"
       >
-        <h1 className="mt-28 font-bold text-4xl md:text-5xl mb-4 ">
+        <h1 className="mt-28 font-bold text-4xl md:text-5xl mb-4">
           Hola, soy Tomas👋
         </h1>
-        <p className="text-gray-900 dark:text-gray-300 leading-6 tracking-wide mb-12">
-          Soy un programador de 22 años de Argentina y me gusta el trabajo en equipo, ya que de esa manera puedo aprender y compartir mis conocimientos. Actualmente estoy centrado en el desarrollo frontend y me mantengo en constante capacitación para poder desarrollar código de calidad.
+        <p className="text-gray-800 dark:text-gray-300 leading-6 tracking-wide mb-12">
+          Soy un programador de 23 años de Argentina y me gusta el trabajo en equipo, ya que de esa manera puedo aprender y compartir mis conocimientos. Actualmente estoy centrado en el desarrollo frontend y me mantengo en constante capacitación para poder desarrollar código de calidad.
         </p>
         <h2 className="font-medium text-3xl mb-4">
           ¿Qué hago?💭
         </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-12">
-          Actualmente soy desarrollador front end con experiencia en React, y me encuentro realizando una capacitación en NextJS, pero me encuentro abierto a nuevas propuestas y tecnologias que me ayuden a crecer profesionalmente.
+          Actualmente estoy trabajando en el front end con <a href="https://nextjs.org/" className="text-blue-700 dark:text-blue-400 underline" target="_blank">NextJs</a> pero nunca estoy cerrado a nuevas tecnologias o propuestas!
         </p>
         <h2 className="font-medium text-3xl mb-4">
           Tecnologías💻
@@ -90,31 +88,17 @@ const Index = ({ topRepos }: AppProps) => {
           Proyectos 🛠️
         </h2>
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
-          Disfruto creando proyectos que me permitan aprender y mejorar mis habilidades. A continuacion dejo algunos de mis proyectos.
+          Disfruto creando proyectos que me permitan aprender y mejorar mis habilidades. Aqui hay algunos interesantes, pero tambien puedes visitar mi <a href="https://github.com/ptzt" target="_blank" className="text-blue-700 dark:text-blue-400 underline">Github</a>.
         </p>
-        {/* <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
-          {topRepos.map((repo: Record<string, any>) => {
-            return (
-              <RepoItem
-                key={repo.name}
-                name={repo.name}
-                description={repo.description}
-                stars={repo.stargazers_count}
-                forks={repo.forks_count}
-                language={repo.language}
-              />
-            );
-          })}
-        </div> */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
           {posts.map((repo: Record<string, any>) => {
             return (
               <RepoItem
                 key={repo.id}
+                url={repo.url}
                 name={repo.name}
                 description={repo.description}
-                language={repo.language}
-              />
+                language={repo.language} />
             );
           })}
 
@@ -123,22 +107,6 @@ const Index = ({ topRepos }: AppProps) => {
     </SafeHydrate>
   );
 };
-
-export async function getStaticProps() {
-  const stats = await fetch(`https://api.github-star-counter.workers.dev/user/ptzt`).then(res => res.json());
-  const repos = await fetch(`https://api.github.com/users/ptzt/repos?type=owner&per_page=100`).then(res =>
-    res.json()
-  );
-
-  const topRepos = repos
-    .sort((a: Record<string, any>, b: Record<string, any>) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 4);
-
-  return {
-    props: { topRepos },
-    revalidate: 3600,
-  };
-}
 
 
 

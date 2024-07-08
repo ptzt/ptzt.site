@@ -13,16 +13,15 @@ const Languages: LanguageColors = {
 };
 
 interface RepoProps {
+  url: string;
   name: string;
   description: string;
   language: string;
-  stars: string;
-  forks: number;
 }
 
-const RepoItem = ({ name, description, stars, forks, language }: RepoProps) => {
+const RepoItem = ({ name, description, language, url }: RepoProps) => {
   return (
-    <a href={`https://github.com/ptzt/${name}`} rel="noreferrer" target="_blank">
+    <a href={url} rel="noreferrer" target="_blank" >
       <div className="flex flex-col h-36 p-4 bg-white/10 dark:bg-black/10 rounded-md border border-slate-400 hover:border-slate-700 dark:border-slate-800 dark:hover:border-slate-600 transition-colors duration-75 cursor-pointer">
         <h1 className="font-semibold mb-1">{name}</h1>
         <p className="text-sm text-gray-800/70 dark:text-gray-100/70">{description}</p>
@@ -34,12 +33,6 @@ const RepoItem = ({ name, description, stars, forks, language }: RepoProps) => {
             />
             {language}
           </div>
-          {/* <p className="flex flex-row items-center justify-center">
-            <AiOutlineStar className="mr-1 w-4 h-4" /> {stars}
-          </p>
-          <p className="flex flex-row items-center justify-center">
-            <BiGitRepoForked className="mr-1 w-4 h-4" /> {forks}
-          </p> */}
         </div>
       </div>
     </a>
