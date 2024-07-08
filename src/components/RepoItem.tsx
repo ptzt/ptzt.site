@@ -34,13 +34,12 @@ const RepoItem = ({ name, description, stars, forks, language }: RepoProps) => {
             />
             {language}
           </div>
-
-          <p className="flex flex-row items-center justify-center">
+          {/* <p className="flex flex-row items-center justify-center">
             <AiOutlineStar className="mr-1 w-4 h-4" /> {stars}
           </p>
           <p className="flex flex-row items-center justify-center">
             <BiGitRepoForked className="mr-1 w-4 h-4" /> {forks}
-          </p>
+          </p> */}
         </div>
       </div>
     </a>

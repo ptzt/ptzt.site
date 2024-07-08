@@ -14,6 +14,8 @@ import {
   SiJavascript,
   SiMongodb,
 } from "react-icons/si";
+import Link from "next/link";
+import { BiLandscape } from "react-icons/bi";
 
 
 function SafeHydrate({ children }: any) {
@@ -28,6 +30,20 @@ interface AppProps {
   topRepos: Record<any, any>
 }
 
+const posts = [{
+  id: 1,
+  name: "Feca App",
+  description: "Aplicacion de café",
+  language: "JavaScript",
+},
+
+{
+  id: 2,
+  name: "ptzt.site",
+  description: "Portfolio",
+  language: "TypeScript"
+}
+]
 
 const Index = ({ topRepos }: AppProps) => {
   return (
@@ -76,7 +92,7 @@ const Index = ({ topRepos }: AppProps) => {
         <p className="text-gray-900 dark:text-gray-300 leading-6  tracking-wide mb-6">
           Disfruto creando proyectos que me permitan aprender y mejorar mis habilidades. A continuacion dejo algunos de mis proyectos.
         </p>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
+        {/* <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
           {topRepos.map((repo: Record<string, any>) => {
             return (
               <RepoItem
@@ -89,6 +105,19 @@ const Index = ({ topRepos }: AppProps) => {
               />
             );
           })}
+        </div> */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 grid-rows-2 md:grid-rows-1 mb-12 gap-2">
+          {posts.map((repo: Record<string, any>) => {
+            return (
+              <RepoItem
+                key={repo.id}
+                name={repo.name}
+                description={repo.description}
+                language={repo.language}
+              />
+            );
+          })}
+
         </div>
       </motion.div>
     </SafeHydrate>
